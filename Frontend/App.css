@@ -1,0 +1,525 @@
+/* styles.css */
+
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Typography */
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f4f4f4;
+  }
+  
+  h1, h2, h3 {
+    font-weight: bold;
+  }
+  
+  p {
+    margin-bottom: 1em;
+  }
+  
+  /* Container */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Navigation Bar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-menu li a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-menu li a:hover {
+    color: #007bff;
+  }
+
+
+  /* Dashboard Section */
+  .dashboard-section {
+    padding: 100px 20px 60px 20px; /* Adjust padding to account for fixed navbar */
+    background-color: #f4f4f4;
+    min-height: 100vh;
+  }
+  
+  .dashboard-section h2 {
+    margin-bottom: 30px;
+    color: #007bff;
+    text-align: center;
+  }
+  
+  .dashboard-overview {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .dashboard-overview .card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1 1 250px;
+    max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .dashboard-overview .card i {
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+  
+  .dashboard-overview .card h3 {
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-overview .card p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  /* Wallet Connection */
+.wallet-connection {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .wallet-connection #connectWallet {
+    margin-bottom: 10px;
+  }
+  
+  .wallet-connection #walletAddressDisplay {
+    font-size: 1rem;
+    color: #333333;
+  }
+  
+
+  
+  /* Send Payment Section */
+  .send-payment-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+  }
+  
+  .send-payment-section h2 {
+    margin-bottom: 30px;
+    color: #007bff;
+    text-align: center;
+  }
+  
+  .send-payment-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .send-payment-form form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .send-payment-form form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .send-payment-form form .form-group input,
+  .send-payment-form form .form-group select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .send-payment-form form .btn-primary {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .send-payment-form form .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Receive Payment Section */
+  .receive-payment-section {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+  }
+  
+  .receive-payment-section h2 {
+    margin-bottom: 30px;
+    color: #007bff;
+    text-align: center;
+  }
+  
+  .receive-payment-info {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .wallet-address {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .wallet-address input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .wallet-address .btn-secondary {
+    padding: 10px 15px;
+    background-color: #6c757d;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .wallet-address .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  .qr-code img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  /* Transactions Section */
+  .transactions-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+  }
+  
+  .transactions-section h2 {
+    margin-bottom: 30px;
+    color: #007bff;
+    text-align: center;
+  }
+  
+  .transactions-table {
+    overflow-x: auto;
+  }
+  
+  .transactions-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .transactions-table th,
+  .transactions-table td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+    text-align: left;
+  }
+  
+  .transactions-table th {
+    background-color: #f1f1f1;
+  }
+  
+  .transactions-table .status-completed {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  .transactions-table .status-pending {
+    color: #ffc107;
+    font-weight: bold;
+  }
+  
+  /* Wallet Management Section */
+  .wallet-section {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+  }
+  
+  .wallet-section h2 {
+    margin-bottom: 30px;
+    color: #007bff;
+    text-align: center;
+  }
+  
+  .wallet-management {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .wallet-management .btn-primary {
+    margin-bottom: 20px;
+  }
+  
+  .wallet-management .linked-wallets {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wallet-management .linked-wallets h3 {
+    margin-bottom: 15px;
+  }
+  
+  .wallet-management .linked-wallets ul {
+    list-style: none;
+  }
+  
+  .wallet-management .linked-wallets ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .wallet-management .linked-wallets ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .wallet-management .btn-remove {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .wallet-management .btn-remove:hover {
+    background-color: #c82333;
+  }
+  
+  /* Profile Settings Section */
+  .profile-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+  }
+  
+  .profile-section h2 {
+    margin-bottom: 30px;
+    color: #007bff;
+    text-align: center;
+  }
+  
+  .profile-settings {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-settings form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .profile-settings form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .profile-settings form .form-group input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .profile-settings form .btn-primary {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .profile-settings form .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 20px 0;
+    background-color: #ffffff;
+    text-align: center;
+    border-top: 1px solid #dddddd;
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-secondary {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar-menu {
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background-color: #ffffff;
+      padding: 10px;
+      border: 1px solid #dddddd;
+      display: none;
+    }
+  
+    .navbar-menu.active {
+      display: flex;
+    }
+  
+    .navbar .menu-toggle {
+      display: block;
+      cursor: pointer;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .dashboard-overview {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .wallet-address {
+      flex-direction: column;
+    }
+  }
+  
+
+  /* Transaction Status Colors */
+.status-completed {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  .status-pending {
+    color: #ffc107;
+    font-weight: bold;
+  }
+  
+
+  /* Profile Settings Form */
+.profile-settings form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .profile-settings form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .profile-settings form .form-group input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+
+  /* Transaction Chart */
+.transaction-chart {
+    margin-top: 40px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .transaction-chart h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .transaction-chart canvas {
+    max-width: 100%;
+    height: 400px;
+  }
+  

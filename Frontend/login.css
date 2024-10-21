@@ -1,0 +1,115 @@
+/* Authentication Sections */
+.auth-section {
+    padding: 100px 20px; /* Adjust padding to account for fixed navbar */
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .auth-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .auth-container h2 {
+    margin-bottom: 30px;
+    color: #007bff;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .redirect-text {
+    margin-top: 20px;
+    font-size: 0.95rem;
+  }
+  
+  .redirect-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .redirect-text a:hover {
+    text-decoration: underline;
+  }
+  
+  .divider {
+    margin: 30px 0;
+    position: relative;
+    text-align: center;
+    color: #999999;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #dddddd;
+  }
+  
+  .divider::before {
+    left: 0;
+  }
+  
+  .divider::after {
+    right: 0;
+  }
+  
+  .btn-google {
+    padding: 12px 0;
+    background-color: #db4437;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-google:hover {
+    background-color: #c23321;
+  }
+  

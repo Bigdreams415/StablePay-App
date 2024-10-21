@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StablePay - Dashboard</title>
+  <link rel="stylesheet" href="App.css">
+  
+  <!-- AOS CSS for animations (optional) -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- QRCode.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="app.html" class="navbar-brand">StablePay</a>
+      <ul class="navbar-menu">
+        <li><a href="app.html">Dashboard</a></li>
+        <li><a href="#send-payment">Send Payment</a></li>
+        <li><a href="#receive-payment">Receive Payment</a></li>
+        <li><a href="#transactions">Transactions</a></li>
+        <li><a href="#wallet">Wallet</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Dashboard Section -->
+  <section id="dashboard" class="dashboard-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Dashboard</h2>
+      <div class="dashboard-overview">
+        <div class="card" data-aos="zoom-in">
+          <i class="fas fa-wallet fa-2x"></i>
+          <h3>Your Balance</h3>
+          <p id="balance">$0.00</p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fas fa-exchange-alt fa-2x"></i>
+          <h3>Total Transactions</h3>
+          <p id="total-transactions">0</p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fas fa-chart-line fa-2x"></i>
+          <h3>Monthly Volume</h3>
+          <p id="monthly-volume">$0.00</p>
+        </div>
+      </div>
+      <div class="transaction-chart" data-aos="fade-up" data-aos-delay="300">
+        <h3>Monthly Transaction Volume</h3>
+        <canvas id="transactionChart"></canvas>
+      </div>
+      <!-- Wallet Connection -->
+      <div class="wallet-connection" data-aos="fade-up" data-aos-delay="300">
+        <button id="connectWallet" class="btn-primary">Connect Wallet</button>
+        <p id="walletAddressDisplay">Wallet Address: Not Connected</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Send Payment Section -->
+  <section id="send-payment" class="send-payment-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Send Payment</h2>
+      <div class="send-payment-form" data-aos="fade-up" data-aos-delay="100">
+        <form id="sendPaymentForm">
+          <div class="form-group">
+            <label for="recipient">Recipient Address</label>
+            <input type="text" id="recipient" name="recipient" placeholder="Enter recipient's wallet address" required>
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" name="amount" placeholder="Enter amount to send" min="0" step="0.01" required>
+          </div>
+          <div class="form-group">
+            <label for="currency">Currency</label>
+            <select id="currency" name="currency" required>
+              <option value="ETH">Ethereum (ETH)</option>
+              <option value="USDC">USD Coin (USDC)</option>
+              <option value="USDT">Tether (USDT)</option>
+              <option value="BTC">Bitcoin (BTC)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Receive Payment Section -->
+  <section id="receive-payment" class="receive-payment-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Receive Payment</h2>
+      <div class="receive-payment-info" data-aos="fade-up" data-aos-delay="100">
+        <p>Share your wallet address or QR code to receive payments.</p>
+        <div class="wallet-address">
+          <input type="text" id="walletAddress" value="0xYourWalletAddressHere" readonly>
+          <button onclick="copyWalletAddress()" class="btn-secondary">Copy</button>
+        </div>
+        <div class="qr-code" id="qrcode">
+          <!-- QR Code will be generated here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transactions Section -->
+  <section id="transactions" class="transactions-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Transaction History</h2>
+      <div class="transactions-table" data-aos="fade-up" data-aos-delay="100">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Currency</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dynamic Transaction Rows -->
+            <tr>
+              <td>2024-10-11</td>
+              <td>Sent</td>
+              <td>100.00</td>
+              <td>USDC</td>
+              <td class="status-completed">Completed</td>
+            </tr>
+            <tr>
+              <td>2024-10-10</td>
+              <td>Received</td>
+              <td>50.00</td>
+              <td>ETH</td>
+              <td class="status-pending">Pending</td>
+            </tr>
+            <!-- Add more transactions as needed -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wallet Management Section -->
+  <section id="wallet" class="wallet-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Wallet Management</h2>
+      <div class="wallet-management" data-aos="fade-up" data-aos-delay="100">
+        <button class="btn-primary" onclick="connectWallet()">Link New Wallet</button>
+        <div class="linked-wallets">
+          <h3>Linked Wallets</h3>
+          <ul id="linkedWalletsList">
+            <li>MetaMask <button class="btn-remove">Remove</button></li>
+            <li>Trust Wallet <button class="btn-remove">Remove</button></li>
+            <!-- Add more linked wallets as needed -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Settings Section -->
+  <section id="profile" class="profile-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Profile Settings</h2>
+      <div class="profile-settings" data-aos="fade-up" data-aos-delay="100">
+        <form id="profileForm">
+          <div class="form-group">
+            <label for="profileName">Full Name</label>
+            <input type="text" id="profileName" name="name" value="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="profileEmail">Email Address</label>
+            <input type="email" id="profileEmail" name="email" value="john.doe@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="profilePassword">Password</label>
+            <input type="password" id="profilePassword" name="password" placeholder="Enter new password">
+          </div>
+          <button type="submit" class="btn-primary">Update Profile</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Optional) -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 StablePay. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script src="work.js"></script>
+  <!-- <script src="App.js"></script> -->
+
+</body>
+</html>
